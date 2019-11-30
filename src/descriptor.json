@@ -1,76 +1,38 @@
 {
-    "title": "Scratch4TUIO",
-    "javascriptURL": "http://caesarion.github.io/scratch4tuio/scratch4tuio.min.js",
+    "title": "TuioCursors4Scratch",
+    "javascriptURL": "https://knufg.github.io/TuioCursors4Scratch/scratch4tuio.min.js",
 
     "descriptors": {
         "en": {
             "blocks": [
-                ["h", "when %s changed", "updateEventHatBlock", ""],
-                ["h", "when %s added", "addEventHatBlock", ""],
-                ["h", "when %s removed", "removeEventHatBlock", ""],
-                ["h", "when any TUIO-Object changed", "updateOnAnyObject", ""],
-                ["h", "when any TUIO-Object from source %s changed", "updateOnAnyObjectFromSource", "", ""],
+                ["h", "When Cursor added", "addCursorHatBlock", ""],
+                ["h", "when Cursor removed", "removeCursorHatBlock", ""],
                 ["--"],
-                ["r", "last changed TUIO-Object", "getLatestTuioObject", ""],
-                ["r", "last changed TUIO-Object from source %s", "getLatestTuioObjectFromSource", "", ""],
-                ["r", "TUIO-Object with Symbol ID %n", "tuioObject", ""],
-                ["r", "TUIO-Object with Session ID %n", "tuioObjectSessionID", ""],
-                ["r", "TUIO-Cursor", "tuioCursor", ""],
-                ["--"],
-                ["r", "%m.objectAttributes of %s", "getTuioAttribute", "Position X", ""],
-                ["r", "%s from source %s?", "tuioSource", "", ""],
-                ["b", "%s is %m.objectStates ?", "getStateOfTuioObject", "", "moving"]
+                ["r", "latest Cursor ID", "getLatestTuioCursor", ""],
+                ["r", "Cursor with ID %n", "getTuioCursorWithID", ""],
+                ["r", "%m.cursorAttributes of Cursor with ID %n", "getTuioAttribute", "Position X", ""],
+                ["b", "Is Cursor with ID %n removed", "isTuioCursorWithIdRemoved", ""],
             ],
             "menus": {
-                "objectAttributes": ["Position X", "Position Y", "Angle", "Motion Speed", "Motion Accel", "Rotation Speed", "Rotation Accel", "xSpeed", "ySpeed", "symbolID", "sessionID", "scratchID", "TUIO-source"],
-                "objectStates": ["moving", "accelerating", "decelerating", "rotating"]
+                "cursorAttributes": ["Position X", "Position Y"],
             },
-            "url": "http://caesarion.github.io/scratch4tuio/info/en.html"
+            "url": "https://knufg.github.io/TuioCursors4Scratch/info/en.html"
         },
         "de": {
             "blocks": [
-                ["h", "Wenn sich %s verändert", "updateEventHatBlock", ""],
-                ["h", "Wenn %s hinzugefügt wird", "addEventHatBlock", ""],
-                ["h", "Wenn %s entfernt wird", "removeEventHatBlock", ""],
-                ["h", "Wenn irgendein TUIO-Objekt verändert wird", "updateOnAnyObject", ""],
-                ["h", "Wenn irgendein TUIO-Object der Quelle %s verändert wird", "updateOnAnyObjectFromSource", "", ""],
-                ["--"],
-                ["r", "zuletzt verändertes TUIO-Objekt", "getLatestTuioObject", ""],
-                ["r", "zuletzt verändertes TUIO-Objekt der Quelle %s", "getLatestTuioObjectFromSource", "", ""],
-                ["r", "TUIO-Objekt mit der Symbolnummer %n", "tuioObject", ""],
-                ["r", "TUIO-Objekt mit der Sitzungsnummer %n", "tuioObjectSessionID", ""],
-                ["r", "TUIO-Zeiger", "tuioCursor", ""],
-                ["--"],
-                ["r", "%m.objectAttributes von %s", "getTuioAttribute", "Position X", ""],
-                ["r", "%s der Quelle %s?", "tuioSource", "", ""],
-                ["b", "%s ist %m.objectStates ?", "getStateOfTuioObject", "", "in Bewegung"]
-            ],
-            "menus": {
-                "objectAttributes": ["Position X", "Position Y", "Winkel", "Bewegungsgeschwindigkeit", "Bewegungsbeschleunigung", "Drehgeschwindigkeit", "Drehbeschleunigung", "xGeschwindigkeit", "yGeschwindigkeit", "Symbolnummer", "Sitzungsnummer", "Scratchnummer", "TUIO-Quelle"],
-                "objectStates": ["in Bewegung", "am Beschleunigen", "am Bremsen", "am Drehen"]
-            },
-            "url": "http://caesarion.github.io/scratch4tuio/info/de.html"
-        },
-        "fr": {
             "blocks": [
-                ["h", "si %s change", "updateEventHatBlock", ""],
-                ["h", "si %s est ajouté", "addEventHatBlock", ""],
-                ["h", "si %s est effacé", "removeEventHatBlock", ""],
-                ["h", "si n'importe quel objet-TUIO est changé", "updateOnAnyObject", ""],
+                ["h", "Cursor wurde hinzugefügt", "addCursorHatBlock", ""],
+                ["h", "Cursor wurde entfernt", "removeCursorHatBlock", ""],
                 ["--"],
-                ["r", "objet-TUIO changé en dernier", "getLatestTuioObject", ""],
-                ["r", "objet-TUIO avec le numéro de symbole %n", "tuioObject", ""],
-                ["r", "objet-TUIO avec le numéro de session %n", "tuioObjectSessionID", ""],
-                ["r", "curseur-TUIO", "tuioCursor", ""],
-                ["r", "%m.objectAttributes de %s", "getTuioAttribute", "Position X", ""],
-                ["--"],
-                ["b", "%s est %m.objectStates ?", "getStateOfTuioObject", "", "in Bewegung"]
+                ["r", "zuletzt hinzugefügte Cursor ID", "getLatestTuioCursor", ""],
+                ["r", "Cursor mit ID %n", "getTuioCursorWithID", ""],
+                ["r", "%m.cursorAttributes von Cursor mit ID %n", "getTuioAttribute", "Position X", ""],
+                ["b", "Wurde Cursor mit ID %n entfernt?", "isTuioCursorWithIdRemoved", ""],
             ],
             "menus": {
-                "objectAttributes": ["position X","position Y","angle","vitesse de mouvement","accélération de mouvement","vitesse de rotation","accélération de la rotation","xVitesse","yVitesse","numéro de symbol","numéro de session"],
-                "objectStates": ["se déplacant","en accélération","en freinant","en tournant"]
+                "cursorAttributes": ["Position X", "Position Y"],
             },
-            "url": "http://caesarion.github.io/scratch4tuio/info/en.html"
-        }
+            "url": "https://knufg.github.io/TuioCursors4Scratch/info/de.html"
+        },
     }
 }
