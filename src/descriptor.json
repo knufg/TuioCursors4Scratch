@@ -5,13 +5,13 @@
     "descriptors": {
         "en": {
             "blocks": [
-                ["h", "When Cursor added", "addCursorHatBlock", ""],
+                ["h", "when Cursor added", "addCursorHatBlock", ""],
                 ["h", "when Cursor removed", "removeCursorHatBlock", ""],
                 ["--"],
                 ["r", "latest Cursor ID", "getLatestTuioCursor", ""],
                 ["r", "Cursor with ID %n", "getTuioCursorWithID", ""],
                 ["r", "%m.cursorAttributes of Cursor with ID %n", "getTuioAttribute", "Position X", ""],
-                ["b", "Is Cursor with ID %n removed", "isTuioCursorWithIdRemoved", ""],
+                ["b", "Is Cursor with ID %n removed?", "isTuioCursorWithIdRemoved", ""],
             ],
             "menus": {
                 "cursorAttributes": ["Position X", "Position Y"],
@@ -19,7 +19,6 @@
             "url": "https://knufg.github.io/TuioCursors4Scratch/info/en.html"
         },
         "de": {
-            "blocks": [
             "blocks": [
                 ["h", "Cursor wurde hinzugefügt", "addCursorHatBlock", ""],
                 ["h", "Cursor wurde entfernt", "removeCursorHatBlock", ""],

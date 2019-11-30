@@ -39,10 +39,10 @@ module.exports = (function() { 'use strict';
     // list of counters that holds for every symbol-id the update count
     // the counters are used to return false after the update-hat-block returned true two times.
     // Necessary for the continous execution of the update-hat-block's program stack.
-    var trueUpdateCount = {};
+    // var trueUpdateCount = {};
 
     // the microseconds until an event expires (e.g. is not used any more)
-    var expiringMicroseconds = 50000;
+    // var expiringMicroseconds = 50000;
 
     // init socket.io client on port 5000 --------------------------------------------------------------------------
     var client = new Tuio.Client({
@@ -57,8 +57,8 @@ module.exports = (function() { 'use strict';
         isCursorAdded = true;
     };
 
-    var onUpdateTuioCursor = function(updateCursor) {
-    };
+//    var onUpdateTuioCursor = function(updateCursor) {
+//    };
 
     var onRemoveTuioCursor = function(removeCursor) {
         tuioCursors[removeCursor.sessionId] = null;
@@ -70,7 +70,7 @@ module.exports = (function() { 'use strict';
 
     // bind the defined behavior to the events: --------------------------------------------------------------
     client.on('addTuioCursor', onAddTuioCursor);
-    client.on('updateTuioCursor', onUpdateTuioCursor);
+    //client.on('updateTuioCursor', onUpdateTuioCursor);
     client.on('removeTuioCursor', onRemoveTuioCursor);
     client.on('refresh', onRefresh);
 
