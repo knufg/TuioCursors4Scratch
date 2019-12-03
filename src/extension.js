@@ -135,7 +135,7 @@ module.exports = (function() { 'use strict';
         getDistance: function(id, x, y) {
         		var xCur = convertXToScratchCoordinate(tuioCursors[id].xPos);
         		var yCur = convertYToScratchCoordinate(tuioCursors[id].yPos);
-        		return Math.sqrt((x-xCur)**2 + (y-yCur)**2));
+        		return Math.sqrt((x-xCur)**2 + (y-yCur)**2);
         },
         
         // the methood checks, if the cursor with sessionId id is already removed

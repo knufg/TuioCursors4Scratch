@@ -17600,9 +17600,11 @@ module.exports={
                 ["--"],
                 ["r", "latest Cursor ID", "getLatestTuioCursor", ""],
                 ["r", "Cursor with ID %n", "getTuioCursorWithID", ""],
+                ["r", "distance from Cursor with ID %n to Point x: %n , y: %n", "getDistance", ""],
                 ["r", "%m.cursorAttributes of Cursor with ID %n", "getTuioAttribute", "Position X", ""],
                 ["b", "Is Cursor with ID %n removed?", "isTuioCursorWithIdRemoved", ""],
-            ],
+                ["b", "Is Cursor with ID %n active?", "isTuioCursorWithIdActive", ""],
+         ],
             "menus": {
                 "cursorAttributes": ["Position X", "Position Y"],
             },
@@ -17615,8 +17617,10 @@ module.exports={
                 ["--"],
                 ["r", "zuletzt hinzugefügte Cursor ID", "getLatestTuioCursor", ""],
                 ["r", "Cursor mit ID %n", "getTuioCursorWithID", ""],
+                ["r", "Abstand vom Cursor mit ID %n zum Punkt x: %n , y: %n", "getDistance", ""],
                 ["r", "%m.cursorAttributes von Cursor mit ID %n", "getTuioAttribute", "Position X", ""],
                 ["b", "Wurde Cursor mit ID %n entfernt?", "isTuioCursorWithIdRemoved", ""],
+                ["b", "Ist Cursor mit ID %n aktiv?", "isTuioCursorWithIdActive", ""],
             ],
             "menus": {
                 "cursorAttributes": ["Position X", "Position Y"],
@@ -17634,20 +17638,23 @@ var Tuio = require('./tuio.js');
 module.exports = (function() { 'use strict';
 
     // define helper functions that work on the input of the blocks ----------------------------------------
+    
+    var width = 480;
+    var height = 360;
 
     // coordinate conversion from tuio to scratch coordinates.
     // @param: xCoordinate -> the x-coordinate value. It is a number
     // between 0 and 1 (e.g. a procentage rate). 0 means total left, 1 means total right.
     // @result: the x value in scratch coordinates. A value between -240 (total left) and + 240 (total right)
     var convertXToScratchCoordinate = function(xCoordinate) {
-        return Math.round(-240.0 + 480.0 * xCoordinate);
+        return Math.round(-width/2.0 + width * xCoordinate);
     };
     // coordinate conversion from tuio to scratch coordinates.
     // @param: yCoordinate --> the y-coordinate value. It is a number between 0 and 1
     // (e.g. a procentage rate). 0 means top, 1 means bottom
     // @result: the y value in scratch coordinates. A value between +180 (top) and -180 (bottom)
     var convertYToScratchCoordinate = function(yCoordinate) {
-        return Math.round(180.0 - 360.0 * yCoordinate);
+        return Math.round(height/2.0 - height * yCoordinate);
     };
     // end helper functions ----------------------------------------
 
@@ -17717,7 +17724,7 @@ module.exports = (function() { 'use strict';
             if (isCursorAdded) {
         			isCursorAdded = false;
                return true;
-            } else {
+} else {
             	return false;
             }
         },
@@ -17756,6 +17763,14 @@ module.exports = (function() { 'use strict';
             }
         },
         
+        // the method returns the distance between a cursor and a given point
+        // @param: id ... cursor sessionId, x and y ... coordinate of a point
+        getDistance: function(id, x, y) {
+        		var xCur = convertXToScratchCoordinate(tuioCursors[id].xPos);
+        		var yCur = convertYToScratchCoordinate(tuioCursors[id].yPos);
+        		return Math.sqrt((x-xCur)**2 + (y-yCur)**2);
+        },
+        
         // the methood checks, if the cursor with sessionId id is already removed
         // @param: id ... cursor sessionId
         isTuioCursorWithIdRemoved: function(id) {
@@ -17765,6 +17780,18 @@ module.exports = (function() { 'use strict';
         	  		return false;
         	  	}
         },
+        
+        // the methood checks, if the cursor with sessionId id is still active
+        // @param: id ... cursor sessionId
+        isTuioCursorWithIdActive: function(id) {
+        	  if (tuioCursors[id] != null) {
+        	  	return true;
+        	  	} else {
+        	  		return false;
+        	  	}
+        },
+        
+        
         // end block behavior definitions ----------------------------------------------------------------------------------
 
         // defined the shutdown behavior of the extension
