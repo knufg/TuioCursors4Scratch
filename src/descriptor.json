@@ -10,9 +10,11 @@
                 ["--"],
                 ["r", "latest Cursor ID", "getLatestTuioCursor", ""],
                 ["r", "Cursor with ID %n", "getTuioCursorWithID", ""],
+                ["r", "distance from Cursor with ID %n to Point x: %n , y: %n", "getDistance", ""],
                 ["r", "%m.cursorAttributes of Cursor with ID %n", "getTuioAttribute", "Position X", ""],
                 ["b", "Is Cursor with ID %n removed?", "isTuioCursorWithIdRemoved", ""],
-            ],
+                ["b", "Is Cursor with ID %n active?", "isTuioCursorWithIdActive", ""],
+         ],
             "menus": {
                 "cursorAttributes": ["Position X", "Position Y"],
             },
@@ -25,8 +27,10 @@
                 ["--"],
                 ["r", "zuletzt hinzugefügte Cursor ID", "getLatestTuioCursor", ""],
                 ["r", "Cursor mit ID %n", "getTuioCursorWithID", ""],
+                ["r", "Abstand vom Cursor mit ID %n zum Punkt x: %n , y: %n", "getDistance", ""],
                 ["r", "%m.cursorAttributes von Cursor mit ID %n", "getTuioAttribute", "Position X", ""],
                 ["b", "Wurde Cursor mit ID %n entfernt?", "isTuioCursorWithIdRemoved", ""],
+                ["b", "Ist Cursor mit ID %n aktiv?", "isTuioCursorWithIdActive", ""],
             ],
             "menus": {
                 "cursorAttributes": ["Position X", "Position Y"],
