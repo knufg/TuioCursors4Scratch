@@ -1,4 +1,4 @@
-# TuioCursors4ScratchExtension
+# TuioCursors4Scratch Extension
 
 This is a scratch extension for TUIO, which was developed only for the use of multiple TuioCursors 
 on multi-touch tables or in spaces equiped with a laser tracking system using the TUIO protocoll.
@@ -10,14 +10,14 @@ messages, which are sent via the UDP protocol, to Scratch4TUIO via _Socket.io_.
 You can download the JAR here:
 <https://github.com/caesarion/scratch4tuio-server/releases/download/v1.0.1/scratch4tuio-dispatcher.jar>
 
-Start the OSC-Dispatcher from console via
+Start the Scratch4Tuio-Dispatcher from console via
 
 ```bash
-java -jar OSC-Dispatcher.jar -p 3333
+java -jar scratch4tuio-dispatcher.jar -p 3333
 ```
 
 The `-p` option denotes the port on which the TUIO-Server runs, `3333` is the
-standard port for TUIO. The OSC-Dispatcher and Scratch4TUIO use port
+standard port for TUIO. The Scratch4Tuio-Dispatcher and Scratch4TUIO use port
 `5000`.
 
 Now you still need a TUIO-Server, e.g. a provider of TUIO-data. You can use one
